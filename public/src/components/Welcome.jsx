@@ -4,7 +4,7 @@ import Robot from "../assets/robot.gif";
 export default function Welcome() {
     const [userName, setUserName] = useState("");
     const getData = async () => {
-        setUserName(await JSON.parse(localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)).username);
+        setUserName(await JSON.parse(localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY))?.username);
     };
     useEffect(() => {
         try {
@@ -15,7 +15,7 @@ export default function Welcome() {
         <Container>
             <img src={Robot} alt="" />
             <h1>
-                Welcome, <span>{userName}!</span>
+                Welcome, <span>{userName ? userName : ""}!</span>
             </h1>
             <h3>Please select a chat to Start messaging.</h3>
         </Container>

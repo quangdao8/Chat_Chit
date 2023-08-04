@@ -36,3 +36,8 @@ export const addMessage = async (req, res, next) => {
         next(error);
     }
 };
+
+export const groupMessage = async (req, res, next) => {
+    try {
+    } catch (error) {}
+};

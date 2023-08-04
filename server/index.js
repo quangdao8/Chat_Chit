@@ -2,8 +2,7 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import * as dotenv from "dotenv";
-import authRouter from "./routes/userRoute";
-import messageRoutes from "./routes/messageRoute";
+import routers from "./routes/index";
 import socket, { Server } from "socket.io";
 import http from "http";
 
@@ -26,8 +25,7 @@ mongoose
         console.log("err: 22", err);
     });
 
-app.use("/api/auth", authRouter);
-app.use("/api/messages", messageRoutes);
+app.use("/api", routers);
 
 app.get("/", (req, res) => {
     res.send("Hello world");
